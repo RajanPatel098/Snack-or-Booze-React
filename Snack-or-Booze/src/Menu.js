@@ -10,7 +10,7 @@ import {
   ListGroupItem
 } from "reactstrap";
 
-function FoodMenu({ snacks }) {
+function Menu({ snacks, drinks }) {
   return (
     <section className="col-md-4">
       <Card>
@@ -19,8 +19,7 @@ function FoodMenu({ snacks }) {
             Food Menu
           </CardTitle>
           <CardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+           Click on a snack to see more details.
           </CardText>
           <ListGroup>
             {snacks.map(snack => (
@@ -31,8 +30,29 @@ function FoodMenu({ snacks }) {
           </ListGroup>
         </CardBody>
       </Card>
+
+      <Card>
+        <CardBody>
+          <CardTitle className="font-weight-bold text-center">
+            Drink Menu
+          </CardTitle>
+          <CardText>
+           Click on a drinkk to see more details.
+          </CardText>
+          <ListGroup>
+            {drinks.map(drink => (
+              <Link to={`/drinks/${drink.id}`} key={drink.id}>
+                <ListGroupItem>{drink.name}</ListGroupItem>
+              </Link>
+            ))}
+          </ListGroup>
+        </CardBody>
+      </Card>
     </section>
+
+    
+    
   );
 }
 
-export default FoodMenu;
+export default Menu;
